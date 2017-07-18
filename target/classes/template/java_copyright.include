@@ -1,0 +1,6 @@
+/*
+ * Powered By [rapid-framework]
+ *  copyright © 趋快科技(武汉)有限公司
+ * Since 2017 <#if now??>- ${now?string('yyyy')}</#if>
+ */
+
