@@ -33,7 +33,7 @@
     <entry key="java_typemapping.java.math.BigDecimal">Long</entry>  
   
   
-    <entry key="jdbc_url">jdbc:mysql://172.16.42.95:3306/cqs?useUnicode=true&amp;characterEncoding=UTF-8&amp;useInformationSchema=true</entry>  
+    <entry key="jdbc_url">jdbc:mysql://172.16.42.95:3306/moke?useUnicode=true&amp;characterEncoding=UTF-8&amp;useInformationSchema=true</entry>  
     <entry key="jdbc_driver">com.mysql.jdbc.Driver</entry>
   
     <!-- Oracle  jdbc:oracle:oci:@tnsname_devdb  

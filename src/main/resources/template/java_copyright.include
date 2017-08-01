@@ -1,6 +1,9 @@
-/*
+/**
  * Powered By [rapid-framework]
- *  copyright © 趋快科技(武汉)有限公司
- * Since 2017 <#if now??>- ${now?string('yyyy')}</#if>
- */
-
+ * Copyright  © 趋快科技(武汉)有限公司
+ * @author :${user_name}
+ * @Description: ${table.remarks}-${table.className}
+ * @date ${now?string('yyyy-MM-dd HH:mm:ss')}
+ * @version V1.0
+ **/
+ 

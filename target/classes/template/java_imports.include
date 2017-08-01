@@ -1,3 +1,0 @@
-import ${basepackage}.${table.classNameLowerCase}.entity.*;
-
-

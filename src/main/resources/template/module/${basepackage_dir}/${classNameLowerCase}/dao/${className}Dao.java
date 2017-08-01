@@ -7,7 +7,7 @@ import com.qk.core.ibatis.dao.BaseDao;
 <#include "/java_imports.include">
 
 /**
- * ${table.remarks}  dao层接口类
+ * ${table.remarks}dao层接口类
 <#include "/java_description.include">
  */
 public interface ${className}Dao extends BaseDao<${className}>{

@@ -1,0 +1,82 @@
+<#assign className = table.className>   
+<#assign classNameLower = className?uncap_first> 
+${table.remarks}接口文档(备注：返回值所有都为json自字符串：code：000为成功(其它都为失败)：msg：消息：
+			data：返回的数据，一下说明只是针对data的数据)
+	
+	一，接口名称:增加${table.remarks}对象
+		1)URL地址:/${module_domain}/${classNameLower}/insert
+		2)参数说明(json格式)：
+						<#list table.columns as column>
+							<#if  !column.pk>
+								${column.columnNameLower}:${column.remarks}
+							</#if>
+						</#list>
+		3)返回值说明：
+					data:
+		4)参数方式 :POST
+		5)备注:暂无
+		
+		
+	二，接口名称:更新${table.remarks}对象
+		1)URL地址:/${module_domain}/${classNameLower}/update
+		2)参数说明(json格式)：
+						<#list table.columns as column>
+								${column.columnNameLower}:${column.remarks}
+						</#list>
+		3)返回值说明：
+					data:更新的记录条数
+		4)参数方式 :POST
+		5)备注:暂无
+		
+		
+	三，接口名称:分页查询${table.remarks}列表
+		1)URL地址:/${module_domain}/${classNameLower}/page/{offset}/{pageSize}
+		2)参数说明 
+				page的url中 :
+							offset：第几页(rest)
+						   pageSize：分页size大小(rest)
+						<#list table.columns as column>
+							<#if  !column.pk>
+								${column.columnNameLower}:${column.remarks}
+							</#if>
+						</#list>
+		3)返回值说明(data)：
+					total:总记录条数
+					list：数据列表
+					pageSize：分页大小
+					offset：第几页
+		4)参数方式 :GET
+		5)备注:暂无
+		
+		
+	四，接口名称:根据id获取${table.remarks}对象
+		1)URL地址:/${module_domain}/${classNameLower}/getById/{Id}
+		2)参数说明 
+				 ${table.remarks}对象的id：Id(rest)
+		3)返回值说明：
+						<#list table.columns as column>
+								${column.columnNameLower}:${column.remarks}
+						</#list>
+		4)参数方式 :GET
+		5)备注:暂无
+		
+		
+		
+	五，接口名称:删除${table.remarks}对象
+		1)URL地址:/${module_domain}/${classNameLower}/delete/{Id}
+		2)参数说明 
+				 ${table.remarks}对象的id：Id(rest)
+		3)返回值说明：
+					data:删除的记录条数
+		4)参数方式 :GET
+		5)备注:暂无
+
+
+	六，接口名称:批量删除${table.remarks}对象
+		1)URL地址:/${module_domain}/${classNameLower}/deletes
+		2)参数说明 
+				 ${table.remarks}对象的id数组：ids(用逗号隔开)
+		3)返回值说明：
+					data:修改的记录条数
+		4)参数方式 :GET
+		5)备注:暂无

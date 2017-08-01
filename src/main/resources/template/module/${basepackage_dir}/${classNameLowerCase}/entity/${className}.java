@@ -8,7 +8,7 @@ import com.qk.core.ibatis.beans.Po;
 import com.qk.core.ibatis.util.date.DateUtil;
 import java.util.Date;
 /**
- * ${table.remarks}  数据实体类
+ * ${table.remarks}数据实体类
 <#include "/java_description.include">
  */
 @TableName(name="${table.getSqlName()}")
@@ -18,7 +18,9 @@ public class ${className}  extends Po{
 	    /**  
 	     * ${column.remarks}  
 	     */ 
+    	<#if  column.getSqlName()!=column.columnNameLower>
     	@FieldName(name="${column.getSqlName()}")
+    	</#if>
 	    private ${column.simpleJavaType} ${column.columnNameLower};  
     </#list>  
  

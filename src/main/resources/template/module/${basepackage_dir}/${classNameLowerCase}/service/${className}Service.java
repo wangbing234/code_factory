@@ -4,11 +4,12 @@
 package ${basepackage}.${table.classNameLowerCase}.service;
 
 import com.qk.core.ibatis.service.BaseService;
+import ${basepackage}.${table.classNameLowerCase}.dao.${className}Dao;
 <#include "/java_imports.include">
 /**
- * ${table.remarks}  Service接口
+ * ${table.remarks}Service接口
 <#include "/java_description.include">
  */
-public interface ${className}Service  extends BaseService<${className}>{
+public interface ${className}Service  extends BaseService<${className},${className}Dao>{
 
 }

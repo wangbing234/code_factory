@@ -8,20 +8,20 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 
 <#macro mapperEl value>${r"#{"}${value}}</#macro>
 <#macro namespace>${className}.</#macro>
-
-<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<!--   mybatis的SQL配置文件  -->
 <mapper namespace="${className}Dao">
 
-	<resultMap id="RM_${className}" type="${basepackage}.entity.${className}">
+	<!-- 用于list结果集 -->
+	<resultMap id="${classNameFirstLower}Map" type="${basepackage}.${table.classNameLowerCase}.entity.${className}">
         <#list table.columns as column>
-        <result property="${column.columnNameLower}" column="${column.sqlName}"/>
+        	<result property="${column.columnNameLower}" column="${column.sqlName}"/>
 		</#list>
 	</resultMap>
 	
 	<!-- 用于select查询公用抽取的列 -->
-	<sql id="${className}_columns">
+	<sql id="${classNameFirstLower}Columns">
 	    <![CDATA[
-		<#list table.columns as column>${column.sqlName}<#if column_has_next>,</#if></#list>
+			<#list table.columns as column>${column.sqlName}<#if column_has_next>,</#if></#list>
 	    ]]>
 	</sql>
 </mapper>
