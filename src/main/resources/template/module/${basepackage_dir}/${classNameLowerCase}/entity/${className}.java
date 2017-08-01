@@ -4,9 +4,12 @@
 package ${basepackage}.${table.classNameLowerCase}.entity;
 import com.qk.core.ibatis.annotation.po.TableName;
 import com.qk.core.ibatis.annotation.po.FieldName;
+import javax.validation.constraints.NotNull;
 import com.qk.core.ibatis.beans.Po;
 import com.qk.core.ibatis.util.date.DateUtil;
 import java.util.Date;
+
+import javax.validation.constraints.NotNull;
 /**
  * ${table.remarks}数据实体类
 <#include "/java_description.include">
@@ -16,12 +19,15 @@ public class ${className}  extends Po{
       
     <#list table.columns as column>  
 	    /**  
-	     * ${column.remarks}  
+	     * ${column.remarks}
 	     */ 
     	<#if  column.getSqlName()!=column.columnNameLower>
     	@FieldName(name="${column.getSqlName()}")
     	</#if>
-	    private ${column.simpleJavaType} ${column.columnNameLower};  
+    	<#if  !column.isNullable() && !column.isPk()>
+    	@NotNull(message = "${column.remarks}不能为空！")
+    	</#if>
+	    private ${column.simpleJavaType} ${column.columnNameLower};
     </#list>  
  
 <@generateJavaColumns/>  

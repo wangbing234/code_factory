@@ -4,10 +4,13 @@
 package ${basepackage}.${table.classNameLowerCase}.web;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
+
 import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,7 +49,11 @@ public class ${className}Controller  extends BaseController{
 	 * @return
 	 */
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	private ResultBean insert(@RequestBody ${className} ${classNameLower}) {
+	private ResultBean insert(@RequestBody  @Valid ${className} ${classNameLower},BindingResult bindResult) {
+		//字段规则校验
+		if(bindResult.hasErrors()){
+			return fail(bindResult.getFieldError().getDefaultMessage());
+		}
 		int i = ${classNameLower}Service.add(${classNameLower});
 		logger.info("插入${table.remarks}(${className})对象成功！");
 		return success(i);
@@ -58,7 +65,11 @@ public class ${className}Controller  extends BaseController{
 	 * @return
 	 */
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	private ResultBean update(@RequestBody ${className} ${classNameLower}) {
+	private ResultBean update(@RequestBody  @Valid ${className} ${classNameLower},BindingResult bindResult) {
+		//字段规则校验
+		if(bindResult.hasErrors()){
+			return fail(bindResult.getFieldError().getDefaultMessage());
+		}
 		int flag = ${classNameLower}Service.update(${classNameLower});
 		logger.info("插入${table.remarks}(${className})对象成功！");
 		return success(flag);
